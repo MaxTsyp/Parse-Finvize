@@ -1,19 +1,17 @@
 package com.company;
-
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
 import java.io.*;
 import java.net.URL;
 
+import static com.company.Controler.*;
 
 
 public class ParserFinviz {
-    public static String name = "row";
-    public static String[] rowresult;
 
+    public static String[] rowresult;
     static int number;
 
 
@@ -23,17 +21,16 @@ public class ParserFinviz {
         System.out.println("Страниц парсим: " + number);
 
         parserChartmill.ParsFirstPage();
-
-      parserChartmill.Pars();
+        parserChartmill.Pars();
 
     }
     public static ParserFinviz parserChartmill = new ParserFinviz();
 
     public static Elements results;
     public static String tickerData;
-    public static String[] resultsFinal;
-    private String url = "https://finviz.com/screener.ashx?v=141&f=sh_avgvol_o100,sh_price_u15,sh_relvol_o1&ft=4";
-    //Main.globalUrl;
+
+
+
 
 
     private static Document getPage(String url) throws IOException {
@@ -42,7 +39,7 @@ public class ParserFinviz {
     }
 
     public void ParsFirstPage() throws IOException  {
-        Document page = getPage(url);
+        Document page = getPage(globalUrl);
         Elements table = page.select("table [width=100%]");
         results = table.select("tr [class=screener-body-table-nw]");
         Elements elements = results.select("[class=screener-link-primary]");
@@ -65,13 +62,20 @@ public class ParserFinviz {
 
             for (int i = 1; i < number ; i++) {
 
-            Document page2 = getPage(url + url2 + url3);
+            Document page2 = getPage(globalUrl + url2 + url3);
 
             Elements table = page2.select("table [width=100%]");
 
             results = table.select("tr [class=screener-body-table-nw]");
             Elements elements = results.select("[class=screener-link-primary]");
             tickerData = elements.text();
+
+
+
+
+
+
+
             System.out.println(tickerData);
 
                 try {
@@ -86,7 +90,7 @@ public class ParserFinviz {
         }
     }
     public void ParsNumberPage() throws IOException {
-        Document page2 = getPage(url);
+        Document page2 = getPage(globalUrl);
         Elements numberpage = page2.select("a");
         Elements num = numberpage.select("[class=screener-pages]");
 

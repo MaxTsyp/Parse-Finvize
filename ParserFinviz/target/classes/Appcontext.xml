@@ -7,7 +7,6 @@
 
     </bean>
     <bean id="ParseFin" class="com.company.ParserFinviz">
-
     </bean>
 
 </beans>

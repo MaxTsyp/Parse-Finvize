@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="ParserFinviz">
+    <output-path>$PROJECT_DIR$/out/artifacts/ParserFinviz</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.company.Program" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="ParserFinviz.jar">
+        <element id="module-output" name="ParserFinviz" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/java/com/company/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="directory" name="Jsop">
+        <element id="file-copy" path="$USER_HOME$/Downloads/jsoup-1.12.1.jar" />
+        <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.11.3" />
+      </element>
+    </root>
+  </artifact>
+</component>

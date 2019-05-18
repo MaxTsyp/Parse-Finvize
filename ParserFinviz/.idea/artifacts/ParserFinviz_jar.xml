@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ParserFinviz:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ParserFinviz_jar</output-path>
-    <root id="archive" name="ParserFinviz.jar">
-      <element id="module-output" name="ParserFinviz" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/jsoup-1.12.1.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
