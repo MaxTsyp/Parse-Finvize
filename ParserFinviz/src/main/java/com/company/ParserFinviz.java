@@ -1,5 +1,5 @@
 package com.company;
-import org.apache.poi.hssf.usermodel.HSSFRow;
+
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jsoup.Jsoup;
@@ -13,26 +13,8 @@ import java.net.URL;
 public class ParserFinviz {
     public static String name = "row";
     public static String[] rowresult;
-    static String filename = "C:\\Users\\Max\\Desktop\\NewExcelFile.xls" ;
-    static HSSFWorkbook workbook = new HSSFWorkbook();
-    public  static HSSFSheet sheet = workbook.createSheet("FirstSheet");
 
     static int number;
-
-    public void CreatRow(String row) throws IOException {
-            int i = 0;
-
-
-            HSSFRow row1 = sheet.createRow((short)i++);
-            row1.createCell(0).setCellValue(row);
-
-
-            FileOutputStream fileOut = new FileOutputStream(filename);
-            workbook.write(fileOut);
-            fileOut.close();
-            System.out.println("Your excel file has been generated!");
-    }
-
 
 
     public static void main(String[] args) throws IOException {
@@ -45,13 +27,13 @@ public class ParserFinviz {
       parserChartmill.Pars();
 
     }
-    static ParserFinviz parserChartmill = new ParserFinviz();
+    public static ParserFinviz parserChartmill = new ParserFinviz();
 
     public static Elements results;
     public static String tickerData;
     public static String[] resultsFinal;
     private String url = "https://finviz.com/screener.ashx?v=141&f=sh_avgvol_o100,sh_price_u15,sh_relvol_o1&ft=4";
-            //Main.globalUrl ;
+    //Main.globalUrl;
 
 
     private static Document getPage(String url) throws IOException {

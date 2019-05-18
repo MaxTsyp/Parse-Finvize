@@ -13,11 +13,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 import javafx.geometry.Orientation;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 
 
+
+
 public class Main extends Application{
+
     private final StringProperty heigth = new SimpleStringProperty();
     public static String globalUrl;
 
@@ -41,19 +45,23 @@ public class Main extends Application{
         Button btn = new Button("Parse");
 
         btn.setOnAction(event -> {TextSerch(heigthField.getText());
-            ParserFinviz parserChartmill = new ParserFinviz();
+
+            ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Application.xml");
+            ParserFinviz parserFinviz = context.getBean("ParseFin",ParserFinviz.class);
+
+
             try {
-                parserChartmill.ParsNumberPage();
+                parserFinviz.ParsNumberPage();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                parserChartmill.ParsFirstPage();
+                parserFinviz.ParsFirstPage();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                parserChartmill.Pars();
+                parserFinviz.Pars();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -76,5 +84,6 @@ public class Main extends Application{
     }
 
 
-
+    public void setParseFin(ParserFinviz parseFin) {
+    }
 }
